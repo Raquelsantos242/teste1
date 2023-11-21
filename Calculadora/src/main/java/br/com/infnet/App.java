@@ -1,10 +1,10 @@
 package br.com.infnet;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Locale;
 import java.util.Scanner;
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
     public static double somarValores(double x, double y, double z) {
@@ -36,9 +36,10 @@ public class App
         z = Math.pow(x, y);
         return z;
     }
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
     public static void main( String[] args )
     {
+
 
                 Locale.setDefault(Locale.US);
                 Scanner sc = new Scanner(System.in);
@@ -50,41 +51,42 @@ public class App
 
                 switch (escolha) {
                     case 0:
-                        System.out.printf("Escolha a opção: %n1 Adição%n2 Subtração%n3 Multiplicacao%n4 Divisao%n5 Resto da divisão%n6 Potenciação%n");
+                        LOGGER.info("BEM-VINDO!");
+                        LOGGER.debug("Escolha a opção: %n1 Adição%n2 Subtração%n3 Multiplicacao%n4 Divisao%n5 Resto da divisão%n6 Potenciação%n");
                         escolha = sc.nextInt();
-                        System.out.println("Digite os valores: ");
+                        LOGGER.debug("Digite os valores: ");
                         var1 = sc.nextDouble();
                         var2 = sc.nextDouble();
                     case 1:
                         result = somarValores(var1, var2, result);
-                        System.out.println("Resultado: " + result);
+                        LOGGER.debug("Resultado: " + result);
                         break;
                     case 2:
                         result = subtrairValores(var1, var2, result);
-                        System.out.println("Resultado: " + result);
+                        LOGGER.debug("Resultado: " + result);
                         break;
                     case 3:
                         result = multiplicarValores(var1, var2, result);
-                        System.out.println("Resultado: " + result);
+                        LOGGER.debug("Resultado: " + result);
                         break;
                     case 4:
                         result = dividirValores(var1, var2, result);
-                        System.out.println("Resultado: " + result);
+                        LOGGER.debug("Resultado: " + result);
                         break;
                     case 5:
                         result = potenciaValores(var1, var2, result);
-                        System.out.println("Resultado: " + result);
+                        LOGGER.debug("Resultado: " + result);
                         break;
                     default:
-                        System.out.printf("Deseja fazer mais alguma operação ? (s/n)%n");
+                        LOGGER.debug("Deseja fazer mais alguma operação ? (s/n)%n");
                         captcha = sc.next();
                         if (captcha == "s") {
                             escolha = 0;
                         } else if (captcha == "n") {
-                            System.out.println("Obrigado :D");
+                            LOGGER.debug("Obrigado :D");
                             i = 99 ;
                         } else {
-                            System.out.println("Opção invalida");
+                            LOGGER.error("Opção invalida");
                             escolha = 99;
                         }
                 }
