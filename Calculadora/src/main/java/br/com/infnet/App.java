@@ -5,38 +5,12 @@ import org.slf4j.LoggerFactory;
 import java.util.Locale;
 import java.util.Scanner;
 
+import static funcoes.Funcoes.*;
+
 public class App 
 {
-    public static double somarValores(double x, double y, double z) {
-        z = y + x;
-        return z;
-    }
 
-    public static double multiplicarValores(double x, double y, double z) {
-        z = x * y;
-        return z;
-    }
-
-    public static double subtrairValores(double x, double y, double z) {
-        z = x - y;
-        return z;
-    }
-
-    public static double dividirValores(double x, double y, double z) {
-        z = x / y;
-        return z;
-    }
-
-    public static double restoDivisao(double x, double y, double z) {
-        z = x % y;
-        return z;
-    }
-
-    public static double potenciaValores(double x, double y, double z) {
-        z = Math.pow(x, y);
-        return z;
-    }
-    private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
+    public static final Logger LOGGER = LoggerFactory.getLogger(App.class);
     public static void main( String[] args )
     {
 
